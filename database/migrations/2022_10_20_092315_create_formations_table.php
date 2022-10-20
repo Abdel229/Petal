@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+
+            $table->string('content');
+            $table->date('date');
             $table->timestamps();
         });
     }

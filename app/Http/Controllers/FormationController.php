@@ -14,7 +14,8 @@ class FormationController extends Controller
      */
     public function index()
     {
-        //
+        $formations = formation::all();
+        return view('formation', compact('formations'));
     }
 
     /**
@@ -24,7 +25,6 @@ class FormationController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +35,6 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -46,7 +45,10 @@ class FormationController extends Controller
      */
     public function show(formation $formation)
     {
-        //
+        $formation = formation::find($formation);
+
+
+        return view('show-formation', compact('formation'));
     }
 
     /**
@@ -57,7 +59,6 @@ class FormationController extends Controller
      */
     public function edit(formation $formation)
     {
-        //
     }
 
     /**

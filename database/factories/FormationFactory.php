@@ -17,7 +17,10 @@ class FormationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title'=>$this->faker->word(2,true),
+
+            'content'=>$this->faker->paragraph(20,30),
+            'date'=>$this->faker->date()
         ];
     }
 }
