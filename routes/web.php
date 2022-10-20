@@ -32,4 +32,7 @@ Route::get('/dashboard', function () {
 // Route des formation
 Route::resource('formation','App\Http\Controllers\FormationController');
 
+//route admin
+
+Route::get('/admin','App\Http\Controllers\adminController@index')->name('admin');
 require __DIR__.'/auth.php';

@@ -4,8 +4,6 @@
 
     <div class="grid grid-cols-4 gap-3 m-auto w-5/6">
         @forelse ($formations as $formation)
-
-
             <div class="bg-slate-100 p-1">
                 <p class="font-serif font-bold">
                     {{-- formation title --}}
@@ -30,11 +28,11 @@
             <p>Aucune formation</p>
         @endforelse
     </div>
-    @if($errors->any())
-    <div class="alert alert-danger">
-        @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-        @endforeach
-    </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </div>
     @endif
 @endsection

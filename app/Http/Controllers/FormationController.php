@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\formation;
 use Illuminate\Http\Request;
+use Spatie\FlareClient\View;
 
 class FormationController extends Controller
 {
@@ -16,6 +18,7 @@ class FormationController extends Controller
     {
         $formations = formation::all();
         return view('formation', compact('formations'));
+
     }
 
     /**
@@ -76,6 +79,8 @@ class FormationController extends Controller
      */
     public function edit(formation $formation)
     {
+        $formation=formation::findOrFail($formation);
+        return view('update-formation',compact('formation'));
     }
 
     /**
@@ -87,7 +92,14 @@ class FormationController extends Controller
      */
     public function update(Request $request, formation $formation)
     {
-        //
+        $formation=formation::findOrFail($formation);
+        $formation->update([
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'price'=>$request->title,
+            'date'=>$request->title,
+        ]);
+        return view('admin');
     }
 
     /**
@@ -98,6 +110,8 @@ class FormationController extends Controller
      */
     public function destroy(formation $formation)
     {
-        //
+        $Toformation=formation::findOrFail($formation);
+        $Toformation->delete($formation);
+        return view('admin');
     }
 }
