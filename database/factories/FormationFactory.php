@@ -18,7 +18,7 @@ class FormationFactory extends Factory
     {
         return [
             'title'=>$this->faker->word(2,true),
-
+            'price'=>$this->faker->numberBetween(15000,20000),
             'content'=>$this->faker->paragraph(20,30),
             'date'=>$this->faker->date()
         ];

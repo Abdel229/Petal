@@ -31,4 +31,5 @@ Route::get('/dashboard', function () {
 
 // Route des formation
 Route::resource('formation','App\Http\Controllers\FormationController');
+
 require __DIR__.'/auth.php';

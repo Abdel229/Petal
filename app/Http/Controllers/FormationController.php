@@ -25,6 +25,7 @@ class FormationController extends Controller
      */
     public function create()
     {
+        return(view('create-formation'));
     }
 
     /**
@@ -35,6 +36,22 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
+
+        // validation
+        $request->validate([
+            'title'=>'required',
+            'content'=>'required',
+            'price'=>'required',
+            'date'=>'required'
+        ]);
+        // insertion dans la bb
+        $formation=new formation;
+        $formation->title=$request->title;
+        $formation->content=$request->content;
+        $formation->date=$request->date;
+        $formation->price=$request->price;
+        $formation->save();
+        return (view('create-formation',compact(TRUE)));
     }
 
     /**

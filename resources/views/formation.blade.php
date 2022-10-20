@@ -1,6 +1,7 @@
 @extends('layouts.structure')
 
 @section('content')
+
     <div class="grid grid-cols-4 gap-3 m-auto w-5/6">
         @forelse ($formations as $formation)
 
@@ -29,4 +30,11 @@
             <p>Aucune formation</p>
         @endforelse
     </div>
+    @if($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </div>
+    @endif
 @endsection
