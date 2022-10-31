@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class adminController extends Controller
 {
     public function index(){
-        $formation=formation::all();
-        return view('admin',compact('formation'));
+        $formations=formation::all();
+        return view('admin.admin',compact('formations'));
     }
 }

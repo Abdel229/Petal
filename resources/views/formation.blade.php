@@ -1,7 +1,7 @@
 @extends('layouts.structure')
 
 @section('content')
-
+{{dd(json_encode($formations))}}
     <div class="grid grid-cols-4 gap-3 m-auto w-5/6">
         @forelse ($formations as $formation)
             <div class="bg-slate-100 p-1">

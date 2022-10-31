@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>{{config('app.name','formations')}}</title>
 </head>
-<body>
+<body id="app">
     @yield('content')
 
 </body>
