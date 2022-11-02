@@ -22,6 +22,7 @@ class FormationController extends Controller
         return Inertia::render('formations/formation', [
             'formations' => $formations
         ]);
+        // Inertia::share('formations', $formations);
     }
 
     /**
