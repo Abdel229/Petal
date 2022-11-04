@@ -1,3 +1,4 @@
+@import "../js/src/font-awesome/all.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

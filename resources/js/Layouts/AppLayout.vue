@@ -10,6 +10,8 @@ const props=defineProps(['myclass']);
     <div  v-bind:class="myclass" class="bg-slate-100" style="z-index:-10;">
 
         <slot/>
+
     </div>
     <FooterComponentVue/>
+
 </template>

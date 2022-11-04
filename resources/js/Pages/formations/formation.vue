@@ -1,10 +1,10 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-const props = defineProps(['formations'])
-const formations = computed(() => {
-    this.formations = formations
+const props = defineProps({
+    formations:Array
 })
+
 
 </script>
 
@@ -16,7 +16,7 @@ const formations = computed(() => {
 
         <div>
 
-            <p v-for="formations in this.formation" v-bind:key="formations.id">{{ formations.title }}</p>
+            <p v-for="formation in formations">{{ formation.title }}</p>
         </div>
 
     </AppLayout>
