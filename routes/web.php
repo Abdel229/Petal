@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route des formation
-Route::resource('formation','App\Http\Controllers\FormationController');
+Route::resource('formations','App\Http\Controllers\FormationsController');
 
 //route admin
 

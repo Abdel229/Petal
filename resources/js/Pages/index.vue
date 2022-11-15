@@ -1,14 +1,14 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 </script>
 
 <template>
 
     <Head title="Accueil" />
-    <AppLayout myclass="dark:bg-gray-800">
+    <AppLayout myclass="">
         <!-- Header -->
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="absolute block w-full"
             style="margin: auto; z-index: 2;" height="680" preserveAspectRatio="none" viewBox="0 0 1920 880">
@@ -208,7 +208,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
         <!-- Contact -->
-        <div class="flex mx-auto w-8/12 items-center">
+        <div class="flex lg:flex-wrap mx-auto w-8/12 items-center">
             <!-- Vector de contact -->
             <div class="lg:rounded-lg">
                 <img src="@/src/img/contact-us.png" alt="" srcset="">
@@ -216,16 +216,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
             <!-- Informations pour la mise en contact -->
 
-            <div class="shadow-lg rounded-md px-8 bg-slate-200 h-72 w-1/2" style="background: hsla(0, 0%, 100%, 0.55)">
+            <div class="shadow-lg rounded-md px-8 bg-slate-200 h-72 w-1/2 bg-red-200" style="background: hsla(0, 0%, 100%, 0.55)">
                 <h2 class="font-extrabold text-2xl mt-8">CONTACTEZ-NOUS</h2>
                 <p class="mt-5 text-gray-500">Vous pouvez nous contactez via-whatsapp ou s'implement en nous envoyant un mail</p>
                 <!-- number and mail -->
                 <ul class="transition flex mt-16 font-serif space-x-3 justify-center text-lg text-primary-700 hover:text-primary-800 cursor-pointer">
-                    <li class="border-r-2 pr-3">
-                        <font-awesome-icon icon="fa-solid fa-envelope" /><span>petal@gmail.com</span>
+                    <li class="border-r-2 pr-3 space-x-1">
+                        <font-awesome-icon icon="fa-solid fa-envelope" size="1xl"/><span>petal@gmail.com</span>
                     </li>
-                    <li>
-                        <font-awesome-icon icon="fa-solid fa-phone" /><span>+229 63775445</span>
+                    <li class=" space-x-1">
+                        <font-awesome-icon icon="fa-solid fa-phone" size="1xl"/><span>+229 63775445</span>
                     </li>
                 </ul>
             </div>

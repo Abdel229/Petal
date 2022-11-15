@@ -7,7 +7,7 @@ const props=defineProps(['myclass']);
 
 <template>
     <HeaderComponentVue/>
-    <div  v-bind:class="myclass" class="bg-slate-100" style="z-index:-10;">
+    <div  v-bind:class="myclass" class="bg-slate-100 dark:bg-gray-800" style="z-index:-10;">
 
         <slot/>
 

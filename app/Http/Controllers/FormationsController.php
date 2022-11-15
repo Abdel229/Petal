@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
 use Inertia\Inertia;
-use App\Models\formation;
+use App\Models\formations;
 use Illuminate\Http\Request;
 use Spatie\FlareClient\View;
-
-class FormationController extends Controller
+class FormationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,8 @@ class FormationController extends Controller
      */
     public function index()
     {
-        $formations = formation::all();
-
+        $formations = formations::all();
+        dd($formations->categorie);
         return Inertia::render('formations/formation', [
             'formations' => $formations
         ]);
@@ -52,7 +50,7 @@ class FormationController extends Controller
             'date' => 'required'
         ]);
         // insertion dans la bb
-        $formation = new formation;
+        $formation = new formations;
         $formation->title = $request->title;
         $formation->content = $request->content;
         $formation->date = $request->date;
@@ -67,9 +65,9 @@ class FormationController extends Controller
      * @param  \App\Models\formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function show(formation $formation)
+    public function show(formations $formation)
     {
-        $formation = formation::find($formation);
+        $formation = formations::find($formation);
 
 
         return view('show-formation', compact('formation'));
@@ -81,9 +79,9 @@ class FormationController extends Controller
      * @param  \App\Models\formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function edit(formation $formation)
+    public function edit(formations $formation)
     {
-        $formations = formation::find($formation);
+        $formations = formations::find($formation);
         return view('admin.update-formation', compact('formations'));
     }
 
@@ -96,14 +94,14 @@ class FormationController extends Controller
      */
     public function update(Request $request, $formation)
     {
-        $formation = formation::find($formation);
+        $formation = formations::find($formation);
         $formation->update([
             'title' => $request->title,
             'content' => $request->content,
             'price' => $request->price,
             'date' => $request->date,
         ]);
-        $formations = formation::all();
+        $formations = formations::all();
 
         // $formation->title=$request->title;
         // $formation->content=$request->content;
@@ -122,9 +120,9 @@ class FormationController extends Controller
     public function destroy($formation)
     {
 
-        $Toformation = formation::find($formation);
+        $Toformation = formations::find($formation);
         $Toformation->delete();
-        $formations = formation::all();
+        $formations = formations::all();
         return view('admin.admin', compact('formations'));
     }
 }
