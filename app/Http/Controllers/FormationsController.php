@@ -15,8 +15,8 @@ class FormationsController extends Controller
      */
     public function index()
     {
-        $formations = formations::all();
-        dd($formations->categorie);
+        $formations = formations::with('categorie')->get();
+        // dd($formations[1]->categorie->nom);
         return Inertia::render('formations/formation', [
             'formations' => $formations
         ]);
@@ -67,10 +67,12 @@ class FormationsController extends Controller
      */
     public function show(formations $formation)
     {
-        $formation = formations::find($formation);
+        $formation = formations::with('categorie')->find($formation);
 
 
-        return view('show-formation', compact('formation'));
+        return inertia('showFormation',[
+            'formation'=>$formation
+        ]);
     }
 
     /**
@@ -81,7 +83,7 @@ class FormationsController extends Controller
      */
     public function edit(formations $formation)
     {
-        $formations = formations::find($formation);
+        $formations = formations::find($formation)->first();
         return view('admin.update-formation', compact('formations'));
     }
 

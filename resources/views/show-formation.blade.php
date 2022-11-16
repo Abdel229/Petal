@@ -3,7 +3,7 @@
 @section('content')
 @foreach ($formation as $formation)
 
-<div class="bg-slate-100 p-1">
+<div class="bg-slate-800 p-1">
     <p class="font-serif font-bold">
         {{-- formation title --}}
         {{$formation->title}}
