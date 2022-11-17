@@ -14,9 +14,9 @@ const props = defineProps({
 
     <AppLayout>
         <!-- Formations -->
-        <div class="grid lg:grid-cols-4 w-10/12 mx-auto gap-4">
+        <div class="grid lg:grid-cols-4 w-10/12 mx-auto gap-4 py-4">
             <!-- formation -->
-            <div class="transition rounded-2xl bg-slate-200 shadow-md hover:shadow-lg p-4 mt-6" v-for="oneformation in props.formations">
+            <div class="transition rounded-2xl bg-slate-200 shadow-md hover:shadow-lg p-4" v-for="oneformation in props.formations">
                 <p
                     class="transition text-blue-600 font-regular text-xs mt-1 cursor-pointer hover:underline hover:underline-offset-2">
                     {{ oneformation.categorie.nom }}</p>

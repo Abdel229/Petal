@@ -70,7 +70,7 @@ class FormationsController extends Controller
         $formation = formations::with('categorie')->find($formation);
 
 
-        return inertia('showFormation',[
+        return inertia('formations/showFormation',[
             'formation'=>$formation
         ]);
     }
