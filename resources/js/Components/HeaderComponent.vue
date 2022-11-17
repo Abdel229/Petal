@@ -1,6 +1,8 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3"
 import NavLink from "@/Components/NavLink.vue";
+
+
 </script>
 <template>
     <header>
@@ -22,10 +24,10 @@ import NavLink from "@/Components/NavLink.vue";
             <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <NavLink href="/" aria-current="page">Accueil</NavLink>
+                        <NavLink href="/" :active="$page.component" aria-current="page">Accueil</NavLink>
                     </li>
                     <li>
-                        <NavLink :href="route('formations.index')">Nos formations</NavLink>
+                        <NavLink :href="route('formations.index')" :active="$page.component">Nos formations</NavLink>
                     </li>
                     <li>
                         <Link  class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 space-x-2"><font-awesome-icon icon="fa-solid fa-search"/><span>Recherchez une formations</span></Link>

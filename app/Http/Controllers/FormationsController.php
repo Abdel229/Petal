@@ -30,7 +30,7 @@ class FormationsController extends Controller
      */
     public function create()
     {
-        return (view('admin.create-formation'));
+        return Inertia::render('admin/createFormation');
     }
 
     /**
@@ -56,7 +56,9 @@ class FormationsController extends Controller
         $formation->date = $request->date;
         $formation->price = $request->price;
         $formation->save();
-        return (view('admin.create-formation', compact(TRUE)));
+        return Inertia::render('admin/createFormation',[
+            'create'=>TRUE
+        ]);
     }
 
     /**
@@ -67,9 +69,9 @@ class FormationsController extends Controller
      */
     public function show(formations $formation)
     {
-        $formation = formations::with('categorie')->find($formation);
+        $formation = formations::with('categorie')->find($formation)->first();
 
-
+        // dd($formation);
         return inertia('formations/showFormation',[
             'formation'=>$formation
         ]);
@@ -84,7 +86,7 @@ class FormationsController extends Controller
     public function edit(formations $formation)
     {
         $formations = formations::find($formation)->first();
-        return view('admin.update-formation', compact('formations'));
+        return Inertia::render('updateFormation');
     }
 
     /**
@@ -103,14 +105,16 @@ class FormationsController extends Controller
             'price' => $request->price,
             'date' => $request->date,
         ]);
-        $formations = formations::all();
+
 
         // $formation->title=$request->title;
         // $formation->content=$request->content;
         // $formation->date=$request->date;
         // $formation->price=$request->price;
         // $formation->update();
-        return view('admin.admin', compact('formations'));
+        return Inertia::render('updateFormation',[
+            'update'=>TRUE
+        ]);
     }
 
     /**
