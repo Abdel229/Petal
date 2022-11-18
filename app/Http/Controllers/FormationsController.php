@@ -85,8 +85,10 @@ class FormationsController extends Controller
      */
     public function edit(formations $formation)
     {
-        $formations = formations::find($formation)->first();
-        return Inertia::render('updateFormation');
+        $formations = formations::with('categorie')->find($formation)->first();
+        return Inertia::render('updateFormation',[
+            'formation'=>$formations
+        ]);
     }
 
     /**
