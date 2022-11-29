@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\FormationController;
+use App\Http\Controllers\adminDashboard;
+use App\Http\Controllers\FormationsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,6 +31,7 @@ Route::get('/',function(){
     return Inertia::render('index');
 })->name('Accueil');
 
+//user dashboard routes
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -41,3 +43,6 @@ Route::resource('formations','App\Http\Controllers\FormationsController');
 
 Route::get('/admin','App\Http\Controllers\adminController@index')->name('admin');
 require __DIR__.'/auth.php';
+
+//admin dashboard route
+Route::get('/my-dashboard',[adminDashboard::class,'index']);
